@@ -69,12 +69,26 @@ export default {
         .x(d => xScale(d.time))
         .y(d => yScale(d.value));
 
-      d3.select("svg")
+      const path = d3
+        .select("svg")
         .append("path") // SVG 태그 안에 path 속성을 추가한다.
         .attr("d", linearGenerator(this.data)) // - 라인 생성기로 'd' 속성에 들어갈 좌표정보를 얻는다.
         .attr("fill", "none") // - 라인 안쪽 채우지 않음.
         .attr("stroke-width", 2) // - 굵기
         .attr("stroke", "blue"); // - 파랑색
+
+      const pathLength = path.node().getTotalLength();
+
+      const transitionPath = d3
+        .transition()
+        .ease(d3.easeSin)
+        .duration(2500);
+
+      path
+        .attr("stroke-dashoffset", pathLength)
+        .attr("stroke-dasharray", pathLength)
+        .transition(transitionPath)
+        .attr("stroke-dashoffset", 0);
     }
   },
   mounted() {
