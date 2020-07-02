@@ -10,7 +10,10 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "d3": "^5.16.0",
-    "vue": "^2.6.11"
+    "tui-calendar": "^1.12.13",
+    "tui-chart": "^3.11.2",
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
