@@ -25,29 +25,20 @@ export default {
   },
   data() {
     return {
-      loadData: [],
+      loadData: []
     };
   },
   methods: {
     async fetchData() {
       let data = await d3.json("./tweets.json");
       this.loadData = data;
-    },
+    }
   },
   mounted() {
     //console.log("App loaded");
     this.fetchData();
-  },
+  }
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
